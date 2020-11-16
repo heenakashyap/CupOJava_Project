@@ -1,0 +1,18 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Condensed);
+
+.testclass {
+	color: blue;
+}
+
+body {
+	background-color: #eeeeec;
+	color: #5c3566;
+}
+.navItem {
+	font-family: 'Roboto Condensed', serif;
+	display: inline-block;
+	color: black;
+	margin-right: 50px;
+	font-size: 40px;
+	text-decoration: none;
+}

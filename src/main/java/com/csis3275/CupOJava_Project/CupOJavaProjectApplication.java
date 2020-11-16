@@ -1,0 +1,13 @@
+package com.csis3275.CupOJava_Project;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class CupOJavaProjectApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(CupOJavaProjectApplication.class, args);
+	}
+
+}
