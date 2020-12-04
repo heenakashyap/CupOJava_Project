@@ -17,7 +17,7 @@ body{
   background-color: lightblue;  
 }  
 .container {  
-    padding: 50px;  
+    padding: 10px;  
   background-color: lightblue;  
 }  
   
@@ -81,61 +81,50 @@ hr {
 	</c:if>
 
 </div>
+
 <div class="container">
-<form action="/getOrigDesDetails">
+<form action="/search" method="post">
   <div>
-    <h1>Transit Schedules</h1>
-    <p>Please Select Origin-Destination:</p>
+    <h1>Find Route</h1>
+    <p>Please Select Details</p>
 </div>
 <div style="width:40%;float:left;">
 	<label for="origin"><b>Route</b></label>
   	<br>
-    <select id="origin" name="origin" required="required">
-    <option value="">Select Origin-Destination</option>
-    <c:forEach items="${origList }" var="ol">
-    <option value="${ol.id}">${ol.origin} - ${ol.destination}</option>
-    </c:forEach>
-    </select>   
+  	<input type="text" name="search" placeholder="Search Routes">
     <br>
   </div>
-<%-- <div class="" style="width:40%;float:left;">
-    <label for="destination"><b>Destination</b></label>
+  <div style="width:40%;float:left;">
+  	<label for="origin"><b>Filter by vehicle</b></label>
+  	<br>
+    <select name="type" id="type">
+		<option value="">Not Specified</option>
+		<option value="bus">Bus</option>
+		<option value="train">Train</option>
+		<option value="ferry">Ferry</option>
+	</select>
     <br>
-    <select id="destination" name="destination" >
-    <option value="">Select Destination</option>
-    <c:forEach items="${origList }" var="ol">
-    <option value="${ol.id}">${ol.destination}</option>
-    </c:forEach>
-    </select>   
-    <br>
-  </div> --%>
+  </div>
   <div class="" style="width:20%;float:left;">
   <br>
-    <button type="submit" class="registerbtn">Get Details</button>
+    <button type="submit" class="registerbtn"><i class="fa fa-search"></i> Find Route</button>
   </div>
 </form>
 </div>
-
-<c:if test="${routeInfo eq true}">
 <div class="container">
   <div>
-    <h1>Route Information</h1>
+    <h3>Test right</h3>
     <table class="table">
-    <thead>
-    <tr><td>Origin - Destination</td><td>No of stops</td><td>Time to reach</td><td>Stop Details</td></tr>
-    </thead>
-    <tbody>
-    <c:forEach items="${routeDetailsList }" var="rt">
-    <tr><td><c:out value="${route.origin}"/> - <c:out value="${route.destination}"/></td><td>${rt.noofstops}</td><td>${rt.time}</td><td>${rt.stops}</td></tr>
-    </c:forEach>
-    </tbody>
-    </table>
+		<c:forEach var="route" items="${routeList}">
+			<tr>
+				 <td class="searchrow"> ${route.routeType}</td>
+				<td class="searchrow">Route: ${route.id}</td>
+				<td class="searchrow">To: ${route.destination}</td>
+				<td class="searchrow">To: ${route.origin}</td>
+			</tr>
+		</c:forEach>
+	</table>
 </div>
 </div>
-<script>
-document.getElementById("origin").value = '<c:out value="${origin}"/>';
-//document.getElementById("destination").value = '<c:out value="${destination}"/>';
-</script>
-</c:if>  
 </body>
 </html>

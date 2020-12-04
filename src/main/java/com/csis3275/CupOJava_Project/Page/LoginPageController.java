@@ -20,12 +20,18 @@ public class LoginPageController {
 	UserDAO user;
 	
 	@RequestMapping("login")
-	public ModelAndView login() {
+	public ModelAndView login(HttpServletRequest request) {
 		ModelAndView modelView = new ModelAndView();
 		
+		
+		HttpSession loginSession = request.getSession();
+		//Checks login status
+		if(loginSession.getAttribute("username") != null) {
+			modelView.addObject("loggedIn", true);	
+			
+		}
+		
 		modelView.setViewName("login.jsp");
-		
-		
 		return modelView;
 	}
 	

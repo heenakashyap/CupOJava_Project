@@ -5,11 +5,11 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
-public class RouteMapper implements RowMapper<Route> {
+public class RouteMapper implements RowMapper<Routee> {
 	
-	public Route mapRow(ResultSet resultSet, int i) throws SQLException	{
+	public Routee mapRow(ResultSet resultSet, int i) throws SQLException	{
 	
-		Route route = new Route();
+		Routee route = new Routee();
 		route.setId(resultSet.getInt("id"));
 		route.setRoutetype(resultSet.getString("routetype"));
 		route.setOrigin(resultSet.getString("origin"));

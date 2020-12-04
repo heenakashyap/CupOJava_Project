@@ -8,10 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.csis3275.CupOJava_Project.User.Route;
+import com.csis3275.CupOJava_Project.User.Routee;
 import com.csis3275.CupOJava_Project.User.RouteDao;
-import com.csis3275.CupOJava_Project.User.User;
-import com.csis3275.CupOJava_Project.User.UserDAO;
 
 @Controller
 public class TransitController {
