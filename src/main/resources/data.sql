@@ -1,4 +1,8 @@
 DROP TABLE IF EXISTS transitUsers;
+DROP TABLE IF EXISTS routeStop;
+DROP TABLE IF EXISTS stop;
+DROP TABLE IF EXISTS route;
+
 
 CREATE TABLE transitUsers (
 	id INT AUTO_INCREMENT PRIMARY KEY,
@@ -9,14 +13,38 @@ CREATE TABLE transitUsers (
 	address varchar(250) NOT NULL,
 	city varchar(250) NOT NULL,
 	phoneNo varchar(250) NOT NULL,
-	email varchar(250) NOT NULL,
+	email varchar(250) NOT NULL, 
 	dob date NOT NULL,
 	UNIQUE (username)
 );
 
 
-insert into transitUsers (username, password, firstName, lastName, address, city, phoneNo, email, dob) VALUES
-('whatUsername','thisIsMyPassword','heena','kashyap','scott road', 'vancouver', '7783443334', 'test@gmail.com','2020-10-10'),
-('JohnIsFire','john618811','adam','McCallum','scott road', 'vancouver', '7783443334', 'test@gmail.com','2020-10-10'),
-('MrAwesome','250geoleo','Peter','ozan','scott road', 'vancouver', '7783443334', 'test@gmail.com','2020-10-10');
+CREATE TABLE route (
+	
+	id INT AUTO_INCREMENT PRIMARY KEY,
+	routeType varchar(16) NOT NULL,
+	destination varchar(128) NOT NULL,
+	origin varchar(128) NOT NULL
+	
+	
+	
+);
+
+CREATE TABLE stop (
+	stopID INT AUTO_INCREMENT PRIMARY KEY,
+	stopName varchar(32) NOT NULL	
+);
+
+CREATE TABLE routeStop	(
+	routeID INT NOT NULL,
+	stopID INT NOT NULL,
+	direction varchar(32) NOT NULL,
+	stopNumber INT NOT NULL,
+	timeToThisStop INT NOT NULL,
+	
+	PRIMARY KEY (routeID, stopID, direction),
+	FOREIGN KEY (routeID) REFERENCES route(id),
+	FOREIGN KEY (stopID) REFERENCES stop(stopID)
+	
+);
 

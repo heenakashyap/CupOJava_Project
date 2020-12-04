@@ -60,7 +60,7 @@ hr {
 
 	<label for="firstName"><b>FirstName</b></label>
   <br>
-    <input type="text" placeholder="Enter Your FirstName" name="firstName" id="firstName" required>
+    <input type="text" placeholder="Enter Your First Name" name="firstName" id="firstName" required>
     
     <br><br>
     
@@ -94,7 +94,7 @@ hr {
 <div class="" style="width:50%;float:left;">
     <label for="lastName"><b>LastName</b></label>
     <br>
-    <input type="text" placeholder="Enter Your LastName" name="lastName" id="lastName" required>
+    <input type="text" placeholder="Enter Your Last Name" name="lastName" id="lastName" required>
 
 	<br><br>  
     <label for="psw"><b>Password</b></label>
@@ -108,7 +108,7 @@ hr {
     <br><br>
       <label for="phoneNo"><b>Phone No</b></label>
       <br>
-    <input type="text" placeholder="Enter your PhoneNumber" name="phoneNo" id="phoneNo" required>
+    <input type="text" placeholder="Enter your Phone Number" name="phoneNo" id="phoneNo" required>
 <br><br>
   </div>
   <div class="" style="width:100%;float:left;">

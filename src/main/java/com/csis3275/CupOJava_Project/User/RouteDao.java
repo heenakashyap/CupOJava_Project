@@ -24,15 +24,15 @@ public class RouteDao {
 		jdbcTemplate = new JdbcTemplate(dataSource);
 	}
 		
-	public List<Route> getOrigins() {
+	public List<Routee> getOrigins() {
 		return jdbcTemplate.query(SQL_GET_ORIGIN, new RouteMapper());
 	}
 	
-	public Route getRoute(int routeid) {
+	public Routee getRoute(int routeid) {
 		return jdbcTemplate.query(SQL_GET_ROUTE, new RouteMapper(), routeid).get(0);
 	}
 	
-	public List<Route> getDestinations() {
+	public List<Routee> getDestinations() {
 		return jdbcTemplate.query(SQL_GET_DESTINATION, new RouteMapper());
 	}
 	

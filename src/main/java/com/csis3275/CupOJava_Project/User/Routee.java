@@ -3,7 +3,7 @@ package com.csis3275.CupOJava_Project.User;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Route {
+public class Routee {
 
 	private int id;
 	private String routetype;

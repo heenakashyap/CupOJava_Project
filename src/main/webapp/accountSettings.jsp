@@ -68,8 +68,8 @@ hr {
     
     <label for="username"><b>Username</b></label>
     <br>
-    <input type="text" placeholder="Enter username" name="username" id="username" value="${transitUser.username}" required  disabled="disabled">
-    
+    <input type="text" placeholder="Enter username" name="username1" id="username" value="${transitUser.username}" required  disabled="disabled">
+    <input type="hidden" name="username" value="${transitUser.username }">
   
     <br><br>
     

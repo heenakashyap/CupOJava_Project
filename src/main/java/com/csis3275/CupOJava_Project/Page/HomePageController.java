@@ -1,5 +1,8 @@
 package com.csis3275.CupOJava_Project.Page;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,11 +19,17 @@ public class HomePageController {
 	@Autowired
 	private UserDAO userDAO;
 	
+	
 	@RequestMapping("home")	
-	public ModelAndView showHomePage() {
+	public ModelAndView showHomePage(HttpServletRequest request) {
 		
 		ModelAndView modelView = new ModelAndView();
-		
+		HttpSession loginSession = request.getSession();
+		//Checks login status
+		if(loginSession.getAttribute("username") != null) {
+			modelView.addObject("loggedIn", true);	
+			
+		}
 		modelView.setViewName("home.jsp");
 		return modelView;
 	}
@@ -34,7 +43,17 @@ public class HomePageController {
 		return modelView;
 	}
 	
-	@RequestMapping("register")	
+	@RequestMapping("registration")
+		public ModelAndView showRegistrationPage() {
+		
+		ModelAndView modelView = new ModelAndView();
+		
+		modelView.setViewName("registration.jsp");
+		return modelView;
+		
+	}
+	
+	@RequestMapping("register2")	
 	public ModelAndView registerUser() {
 		
 		ModelAndView modelView = new ModelAndView();
@@ -43,7 +62,7 @@ public class HomePageController {
 		return modelView;
 	}
 	
-	@RequestMapping("createUser")	
+	@RequestMapping("createUser2")	
 	public ModelAndView createUser(@ModelAttribute("transitUsers") User user, Model model) {
 		
 		userDAO.createTransitUsers(user);
@@ -55,5 +74,6 @@ public class HomePageController {
 		
 		return modelView;
 	}
+			
 
 }
